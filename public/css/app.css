@@ -480,60 +480,33 @@ body.is-loading {
     transform: translateY(-3px);
 }
 
-/* Tab chuyển cảnh mượt – CÁC KIỂU MẪU CỬA */
-.tab-content-smooth > .tab-pane.fade {
-    transition: opacity 0.35s ease;
-}
-
-.tab-content-smooth .tab-panel-grid {
-    row-gap: 12px;
-}
-
-.tab-content-smooth .tab-panel-grid.tab-panel-enter {
-    animation: tabPanelIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.tab-content-smooth .tab-card-enter {
-    animation: tabCardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--tab-card-delay, 0ms);
-}
-
-@keyframes tabPanelIn {
-    from {
-        opacity: 0;
-        transform: translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes tabCardIn {
-    from {
-        opacity: 0;
-        transform: translateY(16px) scale(0.97);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
+/* Tabs dạng button – CÁC KIỂU MẪU CỬA */
 #productTabs .nav-link {
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    color: var(--wood-800);
+    background-color: #fff;
+    border: 1px solid var(--wood-100);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #productTabs .nav-link:hover:not(.active) {
-    transform: translateY(-1px);
+    color: var(--bs-primary);
+    background-color: var(--wood-50);
+    border-color: var(--wood-700);
 }
 
 #productTabs .nav-link.active {
-    box-shadow: 0 4px 14px rgba(107, 68, 35, 0.25);
+    color: #fff;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    box-shadow: 0 4px 14px rgba(var(--bs-primary-rgb), 0.35);
+}
+
+#productTabsContent > .tab-pane > .row {
+    row-gap: 12px;
 }
 
 .consult-form .form-label {

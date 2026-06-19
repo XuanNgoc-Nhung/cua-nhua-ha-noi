@@ -81,44 +81,6 @@
     })();
 
     (function () {
-        const tabList = document.getElementById('productTabs');
-        const tabContent = document.getElementById('productTabsContent');
-        if (!tabList || !tabContent) return;
-
-        function animateTabPanel(panel) {
-            if (!panel) return;
-
-            const grid = panel.querySelector('.tab-panel-grid');
-            if (!grid) return;
-
-            grid.classList.remove('tab-panel-enter');
-            void grid.offsetWidth;
-            grid.classList.add('tab-panel-enter');
-
-            grid.querySelectorAll(':scope > .col-6').forEach(function (card, index) {
-                card.classList.remove('tab-card-enter');
-                void card.offsetWidth;
-                card.style.setProperty('--tab-card-delay', (index * 60) + 'ms');
-                card.classList.add('tab-card-enter');
-            });
-        }
-
-        tabList.addEventListener('shown.bs.tab', function (event) {
-            event.target.closest('ul').querySelectorAll('.nav-link').forEach(function (tab) {
-                tab.classList.remove('bg-primary', 'text-white', 'active');
-                tab.classList.add('text-wood-800');
-            });
-            event.target.classList.add('bg-primary', 'text-white');
-            event.target.classList.remove('text-wood-800');
-
-            const targetSelector = event.target.getAttribute('data-bs-target');
-            animateTabPanel(document.querySelector(targetSelector));
-        });
-
-        animateTabPanel(tabContent.querySelector('.tab-pane.active'));
-    })();
-
-    (function () {
         const form = document.getElementById('consultForm');
         if (!form || typeof axios === 'undefined') return;
 
