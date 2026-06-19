@@ -3,32 +3,54 @@
         ['name' => 'Cửa Composite cao cấp CC13', 'price' => '3.450.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Composite cao cấp CC12', 'price' => '3.450.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Composite cao cấp CC11', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Composite cao cấp CC10', 'price' => '3.550.000', 'image' => 'https://images.unsplash.com/photo-1600573472591-ee6b68c0c8c0?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Composite cao cấp CC10', 'price' => '3.550.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Composite cao cấp CC09', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Composite cao cấp CC08', 'price' => '3.550.000', 'image' => 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cd2a?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Composite cao cấp CC07', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600210492493-03a5c3f1d0c0?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Composite cao cấp CC08', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Composite cao cấp CC07', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Composite cao cấp CC06', 'price' => '3.450.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
     ];
 
-    $sampleProducts = [
+    $compositeSampleProducts = [
         ['name' => 'Cửa Chỉ Trang Trí CT06', 'price' => '2.900.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa composite TP12', 'price' => '3.400.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Ô Huỳnh OH07', 'price' => '2.850.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Tấm Phẳng TP03', 'price' => '2.700.000', 'image' => 'https://images.unsplash.com/photo-1600573472591-ee6b68c0c8c0?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Tấm Phẳng TP03', 'price' => '2.700.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Tấm Phẳng TP08', 'price' => '2.700.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Ô Huỳnh OH02', 'price' => '2.800.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Ô Huỳnh OH08', 'price' => '2.900.000', 'image' => 'https://images.unsplash.com/photo-1600210492493-03a5c3f1d0c0?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Ô Huỳnh OH08', 'price' => '2.900.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Chỉ Trang Trí CT02', 'price' => '3.000.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
+    ];
+
+    $waterproofSampleProducts = [
+        ['name' => 'Cửa Gỗ CN GN01', 'price' => '3.200.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN02', 'price' => '3.350.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN03', 'price' => '3.100.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN04', 'price' => '3.450.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN05', 'price' => '3.280.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN06', 'price' => '3.500.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN07', 'price' => '3.150.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Gỗ CN GN08', 'price' => '3.380.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
+    ];
+
+    $newSampleProducts = [
+        ['name' => 'Cửa Mới NM01', 'price' => '3.600.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM02', 'price' => '3.750.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM03', 'price' => '3.550.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM04', 'price' => '3.800.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM05', 'price' => '3.650.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM06', 'price' => '3.900.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM07', 'price' => '3.700.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Mới NM08', 'price' => '3.850.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
     ];
 
     $smartLocks = [
         ['name' => 'Khóa vân tay KT02', 'price' => '4.500.000', 'image' => 'https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=500&fit=crop'],
         ['name' => 'Khóa thông minh KT01', 'price' => '1.750.000', 'image' => 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=400&h=500&fit=crop'],
-        ['name' => 'Khóa sảnh KS02', 'price' => '1.500.000', 'image' => 'https://images.unsplash.com/photo-1610641818985-c2051b5e2cfd?w=400&h=500&fit=crop'],
-        ['name' => 'Khóa cửa KH12', 'price' => '500.000', 'image' => 'https://images.unsplash.com/photo-1585779034823-7e9ac8faec57?w=400&h=500&fit=crop'],
-        ['name' => 'Khóa cửa KH03', 'price' => '650.000', 'image' => 'https://images.unsplash.com/photo-1590642916989-42bc41d18325?w=400&h=500&fit=crop'],
-        ['name' => 'Khóa mật mã KM05', 'price' => '2.200.000', 'image' => 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=400&h=500&fit=crop'],
-        ['name' => 'Khóa thẻ từ KT03', 'price' => '3.100.000', 'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop'],
+        ['name' => 'Khóa sảnh KS02', 'price' => '1.500.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Khóa cửa KH12', 'price' => '500.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Khóa cửa KH03', 'price' => '650.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Khóa mật mã KM05', 'price' => '2.200.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Khóa thẻ từ KT03', 'price' => '3.100.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Khóa cửa KH08', 'price' => '850.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
     ];
 
@@ -36,10 +58,10 @@
         ['name' => 'Mắt thần MT01', 'price' => '250.000', 'image' => 'https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=500&fit=crop'],
         ['name' => 'Chốt an toàn 01', 'price' => '70.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
         ['name' => 'Hít chặn HC01', 'price' => '55.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
-        ['name' => 'Clemon 01', 'price' => '105.000', 'image' => 'https://images.unsplash.com/photo-1600573472591-ee6b68c0c8c0?w=400&h=500&fit=crop'],
+        ['name' => 'Clemon 011', 'price' => '105.000', 'image' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=500&fit=crop'],
         ['name' => 'Mắt thần MT02', 'price' => '80.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
-        ['name' => 'Bản lề inox BL03', 'price' => '180.000', 'image' => 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cd2a?w=400&h=500&fit=crop'],
-        ['name' => 'Tay nắm TN05', 'price' => '320.000', 'image' => 'https://images.unsplash.com/photo-1600210492493-03a5c3f1d0c0?w=400&h=500&fit=crop'],
+        ['name' => 'Bản lề inox BL03', 'price' => '180.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
+        ['name' => 'Tay nắm TN05', 'price' => '320.000', 'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=500&fit=crop'],
         ['name' => 'Chốt cửa CC02', 'price' => '95.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
     ];
 
@@ -177,35 +199,35 @@
 
             <ul class="nav nav-pills justify-content-center gap-2 mb-4" id="productTabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active bg-primary text-white" id="tab-composite" data-bs-toggle="pill" data-bs-target="#panel-composite" type="button" role="tab">CỬA COMPOSITE</button>
+                    <button class="nav-link active bg-primary text-white" id="tab-composite" data-bs-toggle="tab" data-bs-target="#panel-composite" type="button" role="tab">CỬA COMPOSITE</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-wood-800" id="tab-waterproof" data-bs-toggle="pill" data-bs-target="#panel-waterproof" type="button" role="tab">CỬA GỖ CHỊU NƯỚC</button>
+                    <button class="nav-link text-wood-800" id="tab-waterproof" data-bs-toggle="tab" data-bs-target="#panel-waterproof" type="button" role="tab">CỬA GỖ CHỊU NƯỚC</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-wood-800" id="tab-new" data-bs-toggle="pill" data-bs-target="#panel-new" type="button" role="tab">MẪU CỬA MỚI</button>
+                    <button class="nav-link text-wood-800" id="tab-new" data-bs-toggle="tab" data-bs-target="#panel-new" type="button" role="tab">MẪU CỬA MỚI</button>
                 </li>
             </ul>
 
             <div class="tab-content tab-content-smooth" id="productTabsContent">
                 <div class="tab-pane fade show active" id="panel-composite" role="tabpanel">
-                    <div class="row g-3 g-md-4 tab-panel-grid">
-                        @foreach ($sampleProducts as $product)
-                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :aos-delay="$loop->index * 80" />
+                    <div class="row gx-3 gx-md-4 tab-panel-grid">
+                        @foreach ($compositeSampleProducts as $product)
+                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
                         @endforeach
                     </div>
                 </div>
                 <div class="tab-pane fade" id="panel-waterproof" role="tabpanel">
-                    <div class="row g-3 g-md-4 tab-panel-grid">
-                        @foreach (array_slice($sampleProducts, 0, 4) as $product)
-                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :aos-delay="$loop->index * 80" />
+                    <div class="row gx-3 gx-md-4 tab-panel-grid">
+                        @foreach ($waterproofSampleProducts as $product)
+                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
                         @endforeach
                     </div>
                 </div>
                 <div class="tab-pane fade" id="panel-new" role="tabpanel">
-                    <div class="row g-3 g-md-4 tab-panel-grid">
-                        @foreach (array_slice($sampleProducts, 4) as $product)
-                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :aos-delay="$loop->index * 80" />
+                    <div class="row gx-3 gx-md-4 tab-panel-grid">
+                        @foreach ($newSampleProducts as $product)
+                            <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
                         @endforeach
                     </div>
                 </div>
@@ -214,7 +236,7 @@
     </section>
 
     {{-- Premium accessories --}}
-    <section id="phu-kien" class="py-3">
+    <section id="phu-kien" class="py-3 mt-5">
         <div class="container">
             <div class="text-center mb-4" data-aos="fade-up">
                 <h2 class="h3 fw-bold text-wood-800 section-title">PHỤ KIỆN CAO CẤP</h2>
@@ -520,11 +542,14 @@
         function animateTabPanel(panel) {
             if (!panel) return;
 
-            panel.classList.remove('tab-panel-enter');
-            void panel.offsetWidth;
-            panel.classList.add('tab-panel-enter');
+            const grid = panel.querySelector('.tab-panel-grid');
+            if (!grid) return;
 
-            panel.querySelectorAll('.tab-panel-grid > [data-aos]').forEach(function (card, index) {
+            grid.classList.remove('tab-panel-enter');
+            void grid.offsetWidth;
+            grid.classList.add('tab-panel-enter');
+
+            grid.querySelectorAll(':scope > .col-6').forEach(function (card, index) {
                 card.classList.remove('tab-card-enter');
                 void card.offsetWidth;
                 card.style.setProperty('--tab-card-delay', (index * 60) + 'ms');
@@ -542,10 +567,6 @@
 
             const targetSelector = event.target.getAttribute('data-bs-target');
             animateTabPanel(document.querySelector(targetSelector));
-
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
-            }
         });
 
         animateTabPanel(tabContent.querySelector('.tab-pane.active'));

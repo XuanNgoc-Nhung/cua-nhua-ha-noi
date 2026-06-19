@@ -481,35 +481,27 @@ body.is-loading {
 }
 
 /* Tab chuyển cảnh mượt – CÁC KIỂU MẪU CỬA */
-.tab-content-smooth > .tab-pane {
-    transition:
-        opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+.tab-content-smooth > .tab-pane.fade {
+    transition: opacity 0.35s ease;
 }
 
-.tab-content-smooth > .tab-pane:not(.active) {
-    opacity: 0;
-    transform: translateY(18px);
+.tab-content-smooth .tab-panel-grid {
+    row-gap: 12px;
 }
 
-.tab-content-smooth > .tab-pane.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.tab-content-smooth > .tab-pane.tab-panel-enter {
-    animation: tabPanelIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+.tab-content-smooth .tab-panel-grid.tab-panel-enter {
+    animation: tabPanelIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .tab-content-smooth .tab-card-enter {
-    animation: tabCardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: tabCardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: var(--tab-card-delay, 0ms);
 }
 
 @keyframes tabPanelIn {
     from {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(16px);
     }
     to {
         opacity: 1;
