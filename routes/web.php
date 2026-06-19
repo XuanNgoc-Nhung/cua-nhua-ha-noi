@@ -4,7 +4,7 @@ use App\Http\Controllers\YeuCauHoTroController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', require resource_path('views/welcome/data.php'));
 });
 Route::get('/home', function () {
     return view('home');
