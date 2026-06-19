@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Cửa Nhựa Hà Nội – Cửa gỗ công nghiệp chịu nước composite')</title>
     <meta name="description" content="@yield('meta_description', 'Cửa composite cao cấp, cửa gỗ chịu nước, cửa gỗ công nghiệp tại Hà Nội. Giá gốc xưởng, bảo hành 3 năm, lắp đặt nhanh chóng.')">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,23 +34,78 @@
     @include('partials.floating-contact')
     @include('partials.back-to-top')
 
+    <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         (function () {
             const loader = document.getElementById('pageLoader');
+            const loaderText = loader?.querySelector('.page-loader__text');
+            const defaultLoaderText = loaderText?.textContent || 'Đang tải nội dung...';
             const duration = 2000;
+
+            window.PageLoader = {
+                show: function (message) {
+                    if (!loader) return;
+
+                    if (loaderText) {
+                        loaderText.textContent = message || defaultLoaderText;
+                    }
+
+                    loader.classList.remove('is-hidden');
+                    loader.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('is-loading');
+                },
+                hide: function () {
+                    if (!loader) return;
+
+                    loader.classList.add('is-hidden');
+                    loader.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('is-loading');
+
+                    if (loaderText) {
+                        loaderText.textContent = defaultLoaderText;
+                    }
+                },
+            };
+
+            window.showToast = function (message, type) {
+                const stack = document.getElementById('toastStack');
+                if (!stack || !message) return;
+
+                const toastType = type === 'success' ? 'success' : 'danger';
+                const toast = document.createElement('div');
+                toast.className = 'app-toast app-toast--' + toastType;
+                toast.setAttribute('role', 'alert');
+                toast.innerHTML =
+                    '<span class="app-toast__icon" aria-hidden="true">' + (toastType === 'success' ? '✓' : '!') + '</span>' +
+                    '<span class="app-toast__message"></span>' +
+                    '<button type="button" class="app-toast__close" aria-label="Đóng">&times;</button>';
+
+                toast.querySelector('.app-toast__message').textContent = message;
+
+                const removeToast = function () {
+                    toast.classList.remove('is-visible');
+                    setTimeout(function () {
+                        toast.remove();
+                    }, 300);
+                };
+
+                toast.querySelector('.app-toast__close').addEventListener('click', removeToast);
+                stack.appendChild(toast);
+
+                requestAnimationFrame(function () {
+                    toast.classList.add('is-visible');
+                });
+
+                setTimeout(removeToast, 4500);
+            };
 
             if (loader) {
                 setTimeout(function () {
-                    loader.classList.add('is-hidden');
-                    document.body.classList.remove('is-loading');
-                    loader.setAttribute('aria-hidden', 'true');
+                    window.PageLoader.hide();
                     window.dispatchEvent(new Event('pageLoaded'));
-
-                    setTimeout(function () {
-                        loader.remove();
-                    }, 500);
                 }, duration);
             } else {
                 document.body.classList.remove('is-loading');

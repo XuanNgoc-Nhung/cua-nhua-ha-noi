@@ -16,7 +16,7 @@
         ['name' => 'Cửa Ô Huỳnh OH07', 'price' => '2.850.000', 'image' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Tấm Phẳng TP03', 'price' => '2.700.000', 'image' => 'https://images.unsplash.com/photo-1600573472591-ee6b68c0c8c0?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Tấm Phẳng TP08', 'price' => '2.700.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
-        ['name' => 'Cửa Ô Huỳnh OH02', 'price' => '2.800.000', 'image' => 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cd2a?w=400&h=500&fit=crop'],
+        ['name' => 'Cửa Ô Huỳnh OH02', 'price' => '2.800.000', 'image' => 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Ô Huỳnh OH08', 'price' => '2.900.000', 'image' => 'https://images.unsplash.com/photo-1600210492493-03a5c3f1d0c0?w=400&h=500&fit=crop'],
         ['name' => 'Cửa Chỉ Trang Trí CT02', 'price' => '3.000.000', 'image' => 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=500&fit=crop'],
     ];
@@ -250,15 +250,14 @@
                         <h2 class="h3 fw-bold mb-2">TƯ VẤN LẮP CỬA BỀN ĐẸP, GIÁ GỐC</h2>
                         <p class="text-white-50 mb-0">Đăng ký nhận tư vấn miễn phí và báo giá ưu đãi nhất</p>
                     </div>
-                    <form class="consult-form" action="#" method="post">
-                        @csrf
+                    <form id="consultForm" class="consult-form" action="{{ route('yeu-cau-ho-tro.store') }}" method="post" novalidate>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="consult-name" class="form-label">Họ và tên <span class="text-danger">*</span></label>
                                 <input
                                     type="text"
                                     id="consult-name"
-                                    name="name"
+                                    name="ten_khach_hang"
                                     class="form-control form-control-lg"
                                     placeholder="Nhập họ và tên của bạn"
                                     required
@@ -270,7 +269,7 @@
                                 <input
                                     type="tel"
                                     id="consult-phone"
-                                    name="phone"
+                                    name="sdt_khach_hang"
                                     class="form-control form-control-lg"
                                     placeholder="Nhập số điện thoại"
                                     required
@@ -282,14 +281,16 @@
                                 <label for="consult-message" class="form-label">Yêu cầu</label>
                                 <textarea
                                     id="consult-message"
-                                    name="message"
+                                    name="noi_dung_yeu_cau"
                                     class="form-control"
                                     rows="4"
                                     placeholder="Mô tả nhu cầu của bạn (loại cửa, số lượng, địa chỉ lắp đặt...)"
                                 ></textarea>
                             </div>
                             <div class="col-12 text-center pt-2">
-                                <button type="submit" class="btn btn-secondary btn-lg px-5">GỬI YÊU CẦU TƯ VẤN</button>
+                                <button type="submit" id="consultSubmitBtn" class="btn btn-secondary btn-lg px-5">
+                                    GỬI YÊU CẦU TƯ VẤN
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -429,6 +430,7 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js"></script>
 <script>
     function initPageAnimations() {
         if (typeof AOS !== 'undefined') {
@@ -547,6 +549,74 @@
         });
 
         animateTabPanel(tabContent.querySelector('.tab-pane.active'));
+    })();
+
+    (function () {
+        const form = document.getElementById('consultForm');
+        if (!form || typeof axios === 'undefined') return;
+
+        const submitBtn = document.getElementById('consultSubmitBtn');
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const formData = new FormData(form);
+            const payload = {
+                ten_khach_hang: formData.get('ten_khach_hang'),
+                sdt_khach_hang: formData.get('sdt_khach_hang'),
+                noi_dung_yeu_cau: formData.get('noi_dung_yeu_cau') || null,
+            };
+
+            if (submitBtn) submitBtn.disabled = true;
+            window.PageLoader?.show('Đang gửi yêu cầu...');
+
+            const loadingStartedAt = Date.now();
+            const minLoadingMs = 1000;
+            let toastMessage = null;
+            let toastType = null;
+
+            try {
+                const response = await axios.post(form.action, payload, {
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json',
+                    },
+                });
+
+                form.reset();
+                toastMessage = response.data.message || 'Gửi yêu cầu thành công.';
+                toastType = 'success';
+            } catch (error) {
+                let message = 'Không thể gửi yêu cầu. Vui lòng thử lại sau.';
+
+                if (error.response?.status === 422) {
+                    const errors = error.response.data.errors;
+                    message = Object.values(errors).flat().join(' ');
+                } else if (error.response?.data?.message) {
+                    message = error.response.data.message;
+                }
+
+                toastMessage = message;
+                toastType = 'error';
+            } finally {
+                const remaining = Math.max(0, minLoadingMs - (Date.now() - loadingStartedAt));
+
+                setTimeout(function () {
+                    window.PageLoader?.hide();
+                    if (submitBtn) submitBtn.disabled = false;
+
+                    if (toastMessage) {
+                        window.showToast?.(toastMessage, toastType);
+                    }
+                }, remaining);
+            }
+        });
     })();
 </script>
 @endpush
