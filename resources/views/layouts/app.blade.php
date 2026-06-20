@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    @php($seo = config('seo'))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Cửa Nhựa Hà Nội – Cửa gỗ công nghiệp chịu nước composite')</title>
-    <meta name="description" content="@yield('meta_description', 'Cửa composite cao cấp, cửa gỗ chịu nước, cửa gỗ công nghiệp tại Hà Nội. Giá gốc xưởng, bảo hành 3 năm, lắp đặt nhanh chóng.')">
+
+    <title>@yield('title', $seo['title'])</title>
+    <meta name="description" content="@yield('meta_description', $seo['description'])">
+    <meta name="keywords" content="@yield('meta_keywords', $seo['keywords'])">
+    <meta name="author" content="@yield('meta_author', $seo['author'])">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow, max-image-preview:large')">
+    <meta name="theme-color" content="{{ $seo['theme_color'] }}">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
+
+    <meta property="og:locale" content="{{ $seo['locale'] }}">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="{{ $seo['site_name'] }}">
+    <meta property="og:title" content="@yield('og_title', $__env->yieldContent('title') ?: $seo['title'])">
+    <meta property="og:description" content="@yield('og_description', $__env->yieldContent('meta_description') ?: $seo['description'])">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
+    <meta property="og:image" content="@yield('og_image', $seo['og_image'])">
+    <meta property="og:image:alt" content="{{ $seo['site_name'] }} – cửa composite, cửa gỗ chịu nước">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('og_title', $__env->yieldContent('title') ?: $seo['title'])">
+    <meta name="twitter:description" content="@yield('og_description', $__env->yieldContent('meta_description') ?: $seo['description'])">
+    <meta name="twitter:image" content="@yield('og_image', $seo['og_image'])">
+
+    <meta name="geo.region" content="{{ $seo['region'] }}">
+    <meta name="geo.placename" content="{{ $seo['city'] }}">
+    <meta name="geo.position" content="21.0285;105.8542">
+    <meta name="ICBM" content="21.0285, 105.8542">
+
+    @if ($seo['google_site_verification'])
+        <meta name="google-site-verification" content="{{ $seo['google_site_verification'] }}">
+    @endif
+    @if ($seo['facebook_domain_verification'])
+        <meta name="facebook-domain-verification" content="{{ $seo['facebook_domain_verification'] }}">
+    @endif
+
+    <link rel="icon" href="{{ $seo['favicon'] }}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ $seo['apple_touch_icon'] }}">
+
+    <script type="application/ld+json">
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'HomeAndConstructionBusiness',
+            'name' => $seo['site_name'],
+            'alternateName' => $seo['site_slug'],
+            'url' => url('/'),
+            'logo' => $seo['og_image'],
+            'image' => $seo['og_image'],
+            'description' => $seo['description'],
+            'telephone' => '+84' . ltrim($seo['phone'], '0'),
+            'email' => $seo['email'],
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => $seo['address'],
+                'addressLocality' => $seo['city'],
+                'addressRegion' => $seo['region'],
+                'addressCountry' => $seo['country'],
+            ],
+            'areaServed' => [
+                '@type' => 'City',
+                'name' => $seo['city'],
+            ],
+            'priceRange' => '₫₫',
+            'sameAs' => [],
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+    </script>
+
+    @if ($seo['google_analytics_id'])
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $seo['google_analytics_id'] }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ $seo['google_analytics_id'] }}');
+        </script>
+    @endif
+    @if ($seo['facebook_pixel_id'])
+        <script>
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '{{ $seo['facebook_pixel_id'] }}');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ $seo['facebook_pixel_id'] }}&ev=PageView&noscript=1" alt=""></noscript>
+    @endif
+
+    @stack('head')
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">

@@ -2,12 +2,93 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+	@php($seo = config('seo'))
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#fff" />
+	<meta name="theme-color" content="{{ $seo['theme_color'] }}" />
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-		<title>Cửa Công Nghiệp Composite &#8211; Cửa gỗ công nghiệp chịu nước composite</title>
-<meta name='robots' content='max-image-preview:large' />
+	<title>{{ $seo['title'] }}</title>
+	<meta name="description" content="{{ $seo['description'] }}">
+	<meta name="keywords" content="{{ $seo['keywords'] }}">
+	<meta name="author" content="{{ $seo['author'] }}">
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<meta name="format-detection" content="telephone=yes">
+	<link rel="canonical" href="{{ url('/home') }}" />
+
+	<meta property="og:locale" content="{{ $seo['locale'] }}">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{ $seo['site_name'] }}">
+	<meta property="og:title" content="{{ $seo['title'] }}">
+	<meta property="og:description" content="{{ $seo['description'] }}">
+	<meta property="og:url" content="{{ url('/home') }}">
+	<meta property="og:image" content="{{ $seo['og_image'] }}">
+	<meta property="og:image:alt" content="{{ $seo['site_name'] }} – cửa composite, cửa gỗ chịu nước">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ $seo['title'] }}">
+	<meta name="twitter:description" content="{{ $seo['description'] }}">
+	<meta name="twitter:image" content="{{ $seo['og_image'] }}">
+
+	<meta name="geo.region" content="{{ $seo['region'] }}">
+	<meta name="geo.placename" content="{{ $seo['city'] }}">
+	<meta name="geo.position" content="21.0285;105.8542">
+	<meta name="ICBM" content="21.0285, 105.8542">
+
+	@if ($seo['google_site_verification'])
+	<meta name="google-site-verification" content="{{ $seo['google_site_verification'] }}" />
+	@endif
+	@if ($seo['facebook_domain_verification'])
+	<meta name="facebook-domain-verification" content="{{ $seo['facebook_domain_verification'] }}" />
+	@endif
+
+	<script type="application/ld+json">
+		{!! json_encode([
+			'@context' => 'https://schema.org',
+			'@type' => 'HomeAndConstructionBusiness',
+			'name' => $seo['site_name'],
+			'alternateName' => $seo['site_slug'],
+			'url' => url('/'),
+			'logo' => $seo['og_image'],
+			'image' => $seo['og_image'],
+			'description' => $seo['description'],
+			'telephone' => '+84' . ltrim($seo['phone'], '0'),
+			'email' => $seo['email'],
+			'address' => [
+				'@type' => 'PostalAddress',
+				'streetAddress' => $seo['address'],
+				'addressLocality' => $seo['city'],
+				'addressRegion' => $seo['region'],
+				'addressCountry' => $seo['country'],
+			],
+			'areaServed' => [
+				'@type' => 'City',
+				'name' => $seo['city'],
+			],
+			'priceRange' => '₫₫',
+		], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+	</script>
+
+	@if ($seo['google_analytics_id'])
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ $seo['google_analytics_id'] }}"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '{{ $seo['google_analytics_id'] }}');
+	</script>
+	@endif
+	@if ($seo['facebook_pixel_id'])
+	<script>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+		document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '{{ $seo['facebook_pixel_id'] }}');
+		fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ $seo['facebook_pixel_id'] }}&ev=PageView&noscript=1" alt=""></noscript>
+	@endif
 
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//code.ionicframework.com' />
@@ -424,19 +505,12 @@ body,.top-store-menu > li > a,button, input, optgroup, select, textarea,.thunk-w
 <script id="jquery-core-js" src="https://cuagocomposite.vn/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="https://cuagocomposite.vn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
 <link rel="https://api.w.org/" href="https://cuagocomposite.vn/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://cuagocomposite.vn/wp-json/wp/v2/pages/323" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cuagocomposite.vn/xmlrpc.php?rsd" />
-<meta name="generator" content="WordPress 7.0" />
-<meta name="generator" content="WooCommerce 10.8.1" />
-<link rel="canonical" href="https://cuagocomposite.vn/" />
-<link rel='shortlink' href='https://cuagocomposite.vn/' />
-<meta name="google-site-verification" content="xS6i1qo5YwsxY44GE6jQatyovsCu3NXHGAyyMtuOniQ" />
 	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 	<style id="custom-background-css">
 body.custom-background { background-color: #eaeff2; }
 </style>
-<link rel="icon" href="https://cuagocomposite.vn/wp-content/uploads/2021/03/cropped-favi-cua-go-chiu-nuoc-32x32.png" sizes="32x32" />
-<link rel="icon" href="https://cuagocomposite.vn/wp-content/uploads/2021/03/cropped-favi-cua-go-chiu-nuoc-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://cuagocomposite.vn/wp-content/uploads/2021/03/cropped-favi-cua-go-chiu-nuoc-180x180.png" />
-<meta name="msapplication-TileImage" content="https://cuagocomposite.vn/wp-content/uploads/2021/03/cropped-favi-cua-go-chiu-nuoc-270x270.png" />
+<link rel="icon" href="{{ $seo['favicon'] }}" sizes="32x32" />
+<link rel="apple-touch-icon" href="{{ $seo['apple_touch_icon'] }}" />
 <style id="wp-custom-css">
 .leadform-show-form h2{
 	display:none;
