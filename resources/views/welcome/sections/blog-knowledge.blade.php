@@ -1,7 +1,7 @@
-<section class="py-3">
+<section id="tam-composite" class="py-3">
     <div class="container">
         <div class="text-center mb-4" data-aos="fade-up">
-            <h2 class="h3 fw-bold text-wood-800 section-title">KIẾN THỨC SẢN PHẨM</h2>
+            <h2 class="h3 fw-bold text-wood-800 section-title text-uppercase">Các dự án thi công</h2>
         </div>
         <div class="row g-4">
             @foreach (array_slice($posts, 0, 3) as $post)

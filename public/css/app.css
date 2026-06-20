@@ -15,6 +15,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 130px;
 }
 
 body {
@@ -299,12 +300,26 @@ body {
 }
 
 .navbar-top {
-    background: linear-gradient(180deg, #5eb0e8 0%, #4a9fd9 100%);
+    background: linear-gradient(180deg, var(--wood-700) 0%, var(--wood-800) 100%);
 }
 
 .navbar-top__logo {
-    background-color: #fff;
-    color: #3d8fc9;
+    background-color: var(--wood-100);
+    color: var(--wood-800);
+    font-size: 1.125rem;
+}
+
+.navbar-top__brand-title {
+    font-size: 1.35rem;
+}
+
+.navbar-top__brand-subtitle {
+    font-size: 0.9375rem;
+}
+
+.navbar-top__link {
+    font-size: 0.9375rem;
+    font-weight: 500;
 }
 
 .navbar-nav .dropdown-menu {
@@ -313,9 +328,28 @@ body {
 }
 
 .navbar-nav .nav-link {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link.text-wood-800:hover {
+    color: var(--wood-700) !important;
+}
+
+.navbar-nav__mobile-link {
     font-size: 1rem;
     font-weight: 500;
-    white-space: nowrap;
+    color: var(--wood-800);
+    border-left: 4px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav__mobile-link.is-active {
+    background-color: var(--wood-100);
+    color: var(--wood-800);
+    border-left-color: var(--wood-700);
+    font-weight: 600;
 }
 
 .topbar {

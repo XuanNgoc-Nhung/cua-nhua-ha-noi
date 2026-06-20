@@ -1,7 +1,7 @@
-<section class="py-3 bg-wood-50">
+<section id="mau-cua-dep" class="py-3 bg-wood-50">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="h3 fw-bold text-wood-800 section-title">CÁC KIỂU MẪU CỬA 1</h2>
+            <h2 class="h3 fw-bold text-wood-800 section-title">CÁC KIỂU MẪU CỬA</h2>
         </div>
 
         <ul class="nav nav-pills justify-content-center flex-wrap gap-2 mb-4" id="productTabs" role="tablist">

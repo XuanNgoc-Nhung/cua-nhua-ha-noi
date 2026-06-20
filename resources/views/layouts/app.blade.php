@@ -122,6 +122,61 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
+
+            document.querySelectorAll('.js-nav-scroll').forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    const href = link.getAttribute('href');
+                    if (!href || href.charAt(0) !== '#') return;
+
+                    const target = document.getElementById(href.slice(1));
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu?.classList.contains('show') && typeof bootstrap !== 'undefined') {
+                        bootstrap.Offcanvas.getOrCreateInstance(mobileMenu).hide();
+                    }
+
+                    setActiveMobileNav(href.slice(1));
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            const mobileNavLinks = document.querySelectorAll('#mobileNavList .js-nav-scroll');
+
+            function setActiveMobileNav(sectionId) {
+                mobileNavLinks.forEach(function (link) {
+                    const isActive = link.getAttribute('data-nav-section') === sectionId;
+                    link.classList.toggle('is-active', isActive);
+                    link.setAttribute('aria-current', isActive ? 'true' : 'false');
+                });
+            }
+
+            function updateActiveMobileNavOnScroll() {
+                if (!mobileNavLinks.length) return;
+
+                const scrollOffset = 140;
+                const scrollPosition = window.scrollY + scrollOffset;
+                let activeSectionId = mobileNavLinks[0].getAttribute('data-nav-section');
+
+                mobileNavLinks.forEach(function (link) {
+                    const sectionId = link.getAttribute('data-nav-section');
+                    const section = document.getElementById(sectionId);
+                    if (section && section.offsetTop <= scrollPosition) {
+                        activeSectionId = sectionId;
+                    }
+                });
+
+                setActiveMobileNav(activeSectionId);
+            }
+
+            if (mobileNavLinks.length) {
+                window.addEventListener('scroll', updateActiveMobileNavOnScroll, { passive: true });
+                window.addEventListener('resize', updateActiveMobileNavOnScroll, { passive: true });
+                window.addEventListener('pageLoaded', updateActiveMobileNavOnScroll, { once: true });
+                updateActiveMobileNavOnScroll();
+            }
         })();
     </script>
     @stack('scripts')

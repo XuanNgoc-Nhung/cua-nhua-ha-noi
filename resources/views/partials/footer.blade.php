@@ -1,4 +1,4 @@
-<footer class="bg-wood-900 text-white-50">
+<footer id="lien-he" class="bg-wood-900 text-white-50">
     <div class="container py-5">
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">

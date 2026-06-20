@@ -1,4 +1,4 @@
-<section class="hero-section text-white position-relative">
+<section id="trang-chu" class="hero-section text-white position-relative">
     <div class="hero-bg-slides" aria-hidden="true">
         @foreach ($heroImages as $index => $image)
             <div class="hero-bg-slide {{ $index === 0 ? 'active' : '' }}" style="background-image:url('{{ $image }}');"></div>

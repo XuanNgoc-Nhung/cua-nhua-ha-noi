@@ -1,4 +1,4 @@
-<section class="py-3 bg-wood-50">
+<section id="du-an" class="py-3 bg-wood-50">
     <div class="container">
         <h2 class="h5 fw-bold text-wood-800 mb-4" data-aos="fade-up">GÓC CHIA SẺ</h2>
         <div class="row g-3">

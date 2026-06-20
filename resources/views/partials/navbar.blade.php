@@ -6,8 +6,8 @@
                     <a href="/" class="d-flex align-items-center gap-3 text-decoration-none">
                         <div class="navbar-top__logo rounded d-flex align-items-center justify-content-center fw-bold" style="width:48px;height:48px;">CN</div>
                         <div class="d-none d-sm-block">
-                            <div class="fw-bold text-white fs-5 lh-sm">Cửa Nhựa Hà Nội</div>
-                            <div class="small text-white text-opacity-75">Cửa composite chịu nước</div>
+                            <div class="navbar-top__brand-title fw-bold text-white lh-sm">Cửa Nhựa Hà Nội</div>
+                            <div class="navbar-top__brand-subtitle text-white text-opacity-75">Cửa composite chịu nước</div>
                         </div>
                     </a>
                 </div>
@@ -25,7 +25,7 @@
 
                 <div class="col-auto ms-auto">
                     <div class="d-flex align-items-center gap-3">
-                        <a href="#" class="d-none d-sm-inline-flex align-items-center gap-1 text-white text-decoration-none">
+                        <a href="#" class="d-none d-sm-inline-flex align-items-center gap-1 text-white text-decoration-none navbar-top__link">
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                             Tài khoản
                         </a>
@@ -44,27 +44,27 @@
 
     <nav class="d-none d-lg-block border-top bg-white">
         <div class="container">
-            <ul class="nav navbar-nav small flex-row flex-wrap align-items-center">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle bg-primary text-white fw-semibold px-3 py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <ul class="nav navbar-nav flex-row flex-wrap align-items-center">
+                <li class="nav-item dropdown d-none">
+                    <a class="nav-link dropdown-toggle bg-wood-800 text-white fw-semibold px-3 py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         SẢN PHẨM
                     </a>
                     <ul class="dropdown-menu shadow border-0 rounded-0">
-                        <li><a class="dropdown-item fw-medium" href="#">CỬA COMPOSITE</a></li>
-                        <li><a class="dropdown-item ps-4" href="#">Cửa Chỉ Trang Trí</a></li>
-                        <li><a class="dropdown-item ps-4" href="#">Cửa Ô Huỳnh</a></li>
-                        <li><a class="dropdown-item ps-4" href="#">Cửa Tấm Phẳng</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#san-pham">CỬA COMPOSITE</a></li>
+                        <li><a class="dropdown-item ps-4 js-nav-scroll" href="#mau-cua-dep">Cửa Chỉ Trang Trí</a></li>
+                        <li><a class="dropdown-item ps-4 js-nav-scroll" href="#mau-cua-dep">Cửa Ô Huỳnh</a></li>
+                        <li><a class="dropdown-item ps-4 js-nav-scroll" href="#mau-cua-dep">Cửa Tấm Phẳng</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item fw-medium" href="#">CỬA COMPOSITE CÔNG NGHỆ MỚI</a></li>
-                        <li><a class="dropdown-item fw-medium" href="#">CỬA GỖ CHỊU NƯỚC</a></li>
-                        <li><a class="dropdown-item fw-medium" href="#">CỬA GỖ CÔNG NGHIỆP</a></li>
-                        <li><a class="dropdown-item fw-medium" href="#">KHÓA CỬA</a></li>
-                        <li><a class="dropdown-item fw-medium" href="#">PHỤ KIỆN</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#san-pham">CỬA COMPOSITE CÔNG NGHỆ MỚI</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#san-pham">CỬA GỖ CHỊU NƯỚC</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#san-pham">CỬA GỖ CÔNG NGHIỆP</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#khoa-cua">KHÓA CỬA</a></li>
+                        <li><a class="dropdown-item fw-medium js-nav-scroll" href="#phu-kien">PHỤ KIỆN</a></li>
                     </ul>
                 </li>
-                @foreach (['TRANG CHỦ', 'TƯ VẤN CỬA ĐẸP', 'MẪU CỬA ĐẸP', 'CÁC DỰ ÁN THI CÔNG', 'TẤM COMPOSITE PHỦ PVC'] as $item)
+                @foreach (collect(config('navigation.sections'))->where('id', '!=', 'san-pham') as $item)
                     <li class="nav-item">
-                        <a class="nav-link text-wood-800 px-3 py-2" href="#">{{ $item }}</a>
+                        <a class="nav-link text-wood-800 px-3 py-2 js-nav-scroll" href="#{{ $item['id'] }}">{{ $item['label'] }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -81,9 +81,14 @@
         <div class="p-3 border-bottom">
             <input type="search" class="form-control rounded-pill" placeholder="Tìm kiếm sản phẩm...">
         </div>
-        <div class="list-group list-group-flush">
-            @foreach (['TRANG CHỦ', 'SẢN PHẨM', 'TƯ VẤN CỬA ĐẸP', 'MẪU CỬA ĐẸP', 'DỰ ÁN THI CÔNG', 'LIÊN HỆ'] as $item)
-                <a href="#" class="list-group-item list-group-item-action small">{{ $item }}</a>
+        <div class="list-group list-group-flush" id="mobileNavList">
+            @foreach (config('navigation.sections') as $index => $item)
+                <a
+                    href="#{{ $item['id'] }}"
+                    class="list-group-item list-group-item-action navbar-nav__mobile-link js-nav-scroll{{ $index === 0 ? ' is-active' : '' }}"
+                    data-nav-section="{{ $item['id'] }}"
+                    aria-current="{{ $index === 0 ? 'true' : 'false' }}"
+                >{{ $item['label'] }}</a>
             @endforeach
         </div>
     </div>
