@@ -1,28 +1,28 @@
-<footer id="lien-he" class="bg-wood-900 text-white-50">
+<footer id="lien-he" class="bg-wood-900 text-white">
     <div class="container py-5">
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
                 <h3 class="text-white fs-5 fw-bold mb-3">LIÊN HỆ TRỤ SỞ</h3>
                 <ul class="list-unstyled small mb-0">
-                    <li class="mb-2">🏭 Nhà máy SX: KCN Nguyên Khê, Đông Anh, Hà Nội</li>
-                    <li class="mb-2">🏪 Showroom 1: Số 1, Ngõ 46 Quan Nhân, Cầu Giấy, Hà Nội</li>
-                    <li class="mb-2"><a href="tel:0394573621" class="text-white-50 text-decoration-none">📞 0394 573 621</a></li>
-                    <li><a href="mailto:cuagochiunuoccomposite@gmail.com" class="text-white-50 text-decoration-none">✉ cuagochiunuoccomposite@gmail.com</a></li>
+                    {{-- <li class="mb-2">🏭 Nhà máy SX: 08 BT05, KĐT mới Phú Lương, Phường Phú Lương, Thành phố Hà Nội, Việt Nam </li> --}}
+                    <li class="mb-2">🏪 Showroom 1: 08 BT05, KĐT mới Phú Lương, Phường Phú Lương, Thành phố Hà Nội, Việt Nam </li>
+                    <li class="mb-2"><a href="tel:0971738468" class="text-white text-decoration-none">📞 0971738468</a></li>
+                    <li><a href="mailto:cskh@cuanhuacompositehanoi.com" class="text-white text-decoration-none">✉ cskh@cuanhuacompositehanoi.com</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3">
                 <h3 class="text-white fs-5 fw-bold mb-3">LIÊN HỆ SHOWROOM 2</h3>
                 <ul class="list-unstyled small mb-0">
-                    <li class="mb-2">🏢 Tòa nhà Zen Tower, 12 Khuất Duy Tiến, Q. Thanh Xuân, Hà Nội</li>
-                    <li class="mb-2"><a href="tel:0394573621" class="text-white-50 text-decoration-none">📞 0394 573 621</a></li>
-                    <li><a href="mailto:cuagochiunuoccomposite@gmail.com" class="text-white-50 text-decoration-none">✉ cuagochiunuoccomposite@gmail.com</a></li>
+                    <li class="mb-2">🏢 08 BT05, KĐT mới Phú Lương, Phường Phú Lương, Thành phố Hà Nội, Việt Nam</li>
+                    <li class="mb-2"><a href="tel:0971738468" class="text-white text-decoration-none">📞 0971738468</a></li>
+                    <li><a href="mailto:cskh@cuanhuacompositehanoi.com" class="text-white text-decoration-none">✉ cskh@cuanhuacompositehanoi.com</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3">
                 <h3 class="text-white fs-5 fw-bold mb-3">CHÍNH SÁCH</h3>
                 <ul class="list-unstyled small mb-0">
                     @foreach (['Hướng dẫn thanh toán', 'Chính sách bảo mật', 'Chính sách đổi trả', 'Chính sách vận chuyển', 'Chính sách bảo hành'] as $policy)
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">{{ $policy }}</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">{{ $policy }}</a></li>
                     @endforeach
                 </ul>
             </div>
