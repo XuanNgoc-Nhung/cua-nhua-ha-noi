@@ -20,21 +20,45 @@
             <div class="tab-pane show active" id="panel-composite" role="tabpanel" aria-labelledby="tab-composite">
                 <div class="row gx-3 gx-md-4">
                     @foreach ($compositeSampleProducts as $product)
-                        <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
+                        <x-product-card
+                            :name="$product['name']"
+                            :price="$product['price']"
+                            :image="$product['image']"
+                            :features="$product['features']"
+                            :why-use="$product['why_use']"
+                            :similar-products="array_values(array_filter($compositeSampleProducts, fn ($item) => $item['name'] !== $product['name']))"
+                            :use-aos="false"
+                        />
                     @endforeach
                 </div>
             </div>
             <div class="tab-pane" id="panel-waterproof" role="tabpanel" aria-labelledby="tab-waterproof">
                 <div class="row gx-3 gx-md-4">
                     @foreach ($waterproofSampleProducts as $product)
-                        <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
+                        <x-product-card
+                            :name="$product['name']"
+                            :price="$product['price']"
+                            :image="$product['image']"
+                            :features="$product['features']"
+                            :why-use="$product['why_use']"
+                            :similar-products="array_values(array_filter($waterproofSampleProducts, fn ($item) => $item['name'] !== $product['name']))"
+                            :use-aos="false"
+                        />
                     @endforeach
                 </div>
             </div>
             <div class="tab-pane" id="panel-new" role="tabpanel" aria-labelledby="tab-new">
                 <div class="row gx-3 gx-md-4">
                     @foreach ($newSampleProducts as $product)
-                        <x-product-card :name="$product['name']" :price="$product['price']" :image="$product['image']" :use-aos="false" />
+                        <x-product-card
+                            :name="$product['name']"
+                            :price="$product['price']"
+                            :image="$product['image']"
+                            :features="$product['features']"
+                            :why-use="$product['why_use']"
+                            :similar-products="array_values(array_filter($newSampleProducts, fn ($item) => $item['name'] !== $product['name']))"
+                            :use-aos="false"
+                        />
                     @endforeach
                 </div>
             </div>

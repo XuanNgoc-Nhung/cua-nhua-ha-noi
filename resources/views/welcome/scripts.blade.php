@@ -147,4 +147,109 @@
             }
         });
     })();
+
+    (function () {
+        const modalEl = document.getElementById('productDetailModal');
+        if (!modalEl || typeof bootstrap === 'undefined') return;
+
+        const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+        const titleEl = document.getElementById('productDetailModalLabel');
+        const imageEl = document.getElementById('productDetailImage');
+        const priceEl = document.getElementById('productDetailPrice');
+        const featuresEl = document.getElementById('productDetailFeatures');
+        const whyEl = document.getElementById('productDetailWhy');
+        const trackEl = document.getElementById('similarProductsTrack');
+
+        let currentSimilar = [];
+
+        function parseJson(value, fallback) {
+            try {
+                return JSON.parse(value || 'null') ?? fallback;
+            } catch (error) {
+                return fallback;
+            }
+        }
+
+        function renderSimilarProducts(products) {
+            if (!trackEl) return;
+
+            currentSimilar = products;
+            trackEl.innerHTML = '';
+            trackEl.style.animation = 'none';
+
+            if (!products.length) {
+                trackEl.closest('.product-detail-modal__similar')?.classList.add('d-none');
+                return;
+            }
+
+            trackEl.closest('.product-detail-modal__similar')?.classList.remove('d-none');
+
+            const items = products.concat(products);
+            items.forEach(function (product, index) {
+                const card = document.createElement('button');
+                card.type = 'button';
+                card.className = 'similar-product-card border-0 text-start p-0';
+                card.dataset.similarIndex = String(index % products.length);
+                card.innerHTML =
+                    '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy">' +
+                    '<div class="similar-product-card__body">' +
+                        '<div class="similar-product-card__name">' + product.name + '</div>' +
+                        '<div class="similar-product-card__price">' + product.price + ' ₫</div>' +
+                    '</div>';
+
+                card.addEventListener('click', function () {
+                    const selected = currentSimilar[Number(card.dataset.similarIndex)];
+                    if (!selected) return;
+
+                    const others = currentSimilar.filter(function (item) {
+                        return item.name !== selected.name;
+                    });
+
+                    fillModal(selected, others);
+                });
+
+                trackEl.appendChild(card);
+            });
+
+            requestAnimationFrame(function () {
+                trackEl.style.animation = '';
+            });
+        }
+
+        function fillModal(product, similarProducts) {
+            if (!product) return;
+
+            if (titleEl) titleEl.textContent = product.name;
+            if (imageEl) {
+                imageEl.src = product.image;
+                imageEl.alt = product.name;
+            }
+            if (priceEl) priceEl.textContent = product.price + ' ₫';
+
+            if (featuresEl) {
+                featuresEl.innerHTML = (product.features || [])
+                    .map(function (feature) {
+                        return '<li>' + feature + '</li>';
+                    })
+                    .join('');
+            }
+
+            if (whyEl) whyEl.textContent = product.why_use || '';
+
+            renderSimilarProducts(similarProducts || []);
+        }
+
+        document.addEventListener('click', function (event) {
+            const trigger = event.target.closest('.js-product-detail');
+            if (!trigger) return;
+
+            const product = parseJson(trigger.dataset.product, null);
+            const similar = parseJson(trigger.dataset.similar, []);
+
+            if (!product) return;
+
+            fillModal(product, similar);
+            modal.show();
+        });
+    })();
 </script>

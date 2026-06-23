@@ -15,6 +15,8 @@
     @include('welcome.sections.advantages')
     @include('welcome.sections.testimonials')
 
+    <x-product-detail-modal />
+
 @endsection
 
 @push('scripts')
