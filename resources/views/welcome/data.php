@@ -203,4 +203,4 @@ $data['newSampleProducts'] = $enrichProducts($data['newSampleProducts'], 'new');
 $data['smartLocks'] = $enrichProducts($data['smartLocks'], 'smart_lock');
 $data['premiumAccessories'] = $enrichProducts($data['premiumAccessories'], 'accessory');
 
-return $data;
+return array_merge($data, require __DIR__ . '/data-2.php');

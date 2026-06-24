@@ -149,6 +149,40 @@
     })();
 
     (function () {
+        document.querySelectorAll('.js-product-chunks').forEach(function (container) {
+            const chunks = container.querySelectorAll('.product-chunk');
+            if (chunks.length < 2) return;
+
+            const prevBtn = container.querySelector('.js-chunk-prev');
+            const nextBtn = container.querySelector('.js-chunk-next');
+            const indicator = container.querySelector('.js-chunk-indicator');
+            let currentIndex = 0;
+
+            function updateButtons() {
+                if (prevBtn) prevBtn.disabled = currentIndex === 0;
+                if (nextBtn) nextBtn.disabled = currentIndex === chunks.length - 1;
+                if (indicator) indicator.textContent = (currentIndex + 1) + ' / ' + chunks.length;
+            }
+
+            function showChunk(index) {
+                chunks.forEach(function (chunk, i) {
+                    chunk.classList.toggle('d-none', i !== index);
+                });
+                currentIndex = index;
+                updateButtons();
+            }
+
+            prevBtn?.addEventListener('click', function () {
+                if (currentIndex > 0) showChunk(currentIndex - 1);
+            });
+
+            nextBtn?.addEventListener('click', function () {
+                if (currentIndex < chunks.length - 1) showChunk(currentIndex + 1);
+            });
+        });
+    })();
+
+    (function () {
         const modalEl = document.getElementById('productDetailModal');
         if (!modalEl || typeof bootstrap === 'undefined') return;
 

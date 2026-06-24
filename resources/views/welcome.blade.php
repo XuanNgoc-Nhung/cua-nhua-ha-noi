@@ -5,6 +5,7 @@
     @include('welcome.sections.hero')
     @include('welcome.sections.usp-banners')
     @include('welcome.sections.premium-products')
+    @include('welcome.sections.composite-door-sections')
     @include('welcome.sections.premium-accessories')
     @include('welcome.sections.smart-locks')
     @include('welcome.sections.locks-accessories')

@@ -7,6 +7,7 @@
     'similarProducts' => [],
     'aosDelay' => 0,
     'useAos' => true,
+    'columnClass' => 'col-6 col-md-4 col-lg-3',
 ])
 
 @php
@@ -29,7 +30,7 @@
     }, $similarProducts);
 @endphp
 
-<div class="col-6 col-md-4 col-lg-3"@if ($useAos) data-aos="fade-up" data-aos-delay="{{ $aosDelay }}" @endif>
+<div class="{{ $columnClass }}"@if ($useAos) data-aos="fade-up" data-aos-delay="{{ $aosDelay }}" @endif>
     <div class="card product-card h-100 border shadow-sm">
         <div class="overflow-hidden bg-wood-50">
             <img src="{{ $image }}" alt="{{ $name }}" class="card-img-top" loading="lazy">
